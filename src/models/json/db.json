@@ -1,0 +1,38 @@
+{
+    "users": [
+        {
+            "firstName": "Gráinne",
+            "lastName": "O' Connor",
+            "email": "grawnya@gmail.com",
+            "password": "secret"
+          },
+          {
+            "firstName": "Joan",
+            "lastName": "Russell",
+            "email": "joan@yahoo.com",
+            "password": "secret"
+          },
+          {
+           "firstName": "Thomas",
+            "lastName": "Lawrance",
+            "email": "tomh@outlook.com",
+            "password": "secret"
+          }
+        ],
+
+    "trails": [
+        {
+            "title": "Tramore Valley Park",
+            "location": "Cork"
+          },
+          {
+            "title": "Mallow Castle",
+            "location": "Cork"
+          },
+          {
+            "title": "Killarney National Park",
+            "location": "Kerry"
+          }
+    ],
+    "results": []
+}
