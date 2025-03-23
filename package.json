@@ -4,11 +4,16 @@
   "description": "An application for runners to track their stats and routes",
   "main": "src/server.js",
   "type": "module",
+  
   "scripts": {
     "start": "node src/server.js",
     "lint": "eslint . --ext .js",
     "test": "mocha --ui tdd test/**.js -exit",
     "dev": "nodemon  src/server.js"
+  },
+  
+  "engines": {
+    "node": ">=16"
   },
   "repository": {
     "type": "git",
