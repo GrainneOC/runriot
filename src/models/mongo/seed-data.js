@@ -30,7 +30,7 @@ export const seedData = {
     },
     results: {
       _model : "Result",
-      result_1 : {
+      testresult : {
         distance: 8,
         duration: 45,
         date: "20/02/2025",
