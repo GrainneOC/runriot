@@ -13,12 +13,28 @@ export const seedData = {
         email: "joan@yahoo.com",
         password: "secret"
       },
-      bart: {
+      thomas: {
         firstName: "Thomas",
         lastName: "Lawrance",
         email: "tomh@outlook.com",
         password: "secret"
       }
     },
-  };
+    trails: {
+      _model: "Trail",
+      greenway: {
+        title: "Blackrock Greenway",
+        userid: "->users.thomas"
+      }
+    },
+    results: {
+      _model : "Result",
+      result_1 : {
+        distance: 8,
+        duration: 45,
+        date: "20/02/2025",
+        trailid: "->trails.greenway"
+      },
+    }
+}
   
