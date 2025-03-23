@@ -1,5 +1,10 @@
 export const serviceUrl = "http://localhost:3000";
 
+export const aoifeCredentials = {
+  email: "aoifem@gmail.com",
+  password: "secret"
+};
+
 export const aoife = {
   firstName: "Aoife",
   lastName: "Murphy",
@@ -75,4 +80,3 @@ export const testResults = [
     "date": "10/03/2025",
   }
 ];
-  
