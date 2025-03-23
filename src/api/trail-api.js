@@ -1,5 +1,5 @@
 import Boom from "@hapi/boom";
-import { TrailSpec } from "../models/joi-schemas.js";
+import { IdSpec, TrailSpec, TrailSpecPlus, TrailArraySpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
 import { validationError } from "./logger.js";
 
