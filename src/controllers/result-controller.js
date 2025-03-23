@@ -27,7 +27,7 @@ export const resultController = {
       const result = await db.resultStore.getResultById(request.params.resultid);
       const newResult = {
         distance: Number(request.payload.distance),
-        duration: Number(request.payload.artist),
+        duration: Number(request.payload.duration),
         date: request.payload.date,
       };
       await db.resultStore.updateResult(result, newResult);

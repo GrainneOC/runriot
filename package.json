@@ -30,6 +30,7 @@
     "@hapi/hapi": "^21.4.0",
     "@hapi/inert": "^7.1.0",
     "@hapi/vision": "^7.0.3",
+    "cloudinary": "^2.6.0",
     "dotenv": "^16.4.7",
     "exit-hook": "^4.0.0",
     "g": "^2.0.1",
