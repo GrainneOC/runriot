@@ -8,10 +8,14 @@ suite("Result API tests", () => {
   let parkRun = null;
 
   setup(async () => {
+    runriotService.clearAuth();
+    user = await runriotService.createUser(aoife);
+    await runriotService.authenticate(aoife);
     await runriotService.deleteAllTrails();
     await runriotService.deleteAllUsers();
     await runriotService.deleteAllResults();
     user = await runriotService.createUser(aoife);
+    await runriotService.authenticate(aoife);
     greenway.userid = user._id;
     parkRun = await runriotService.createTrail(greenway);
   });

@@ -5,7 +5,9 @@ import { validationError } from "./logger.js";
 
 export const resultApi = {
   find: {
-    auth: false,
+  auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const results = await db.resultStore.getAllResults();
@@ -21,7 +23,9 @@ export const resultApi = {
   },
 
   findOne: {
-    auth: false,
+  auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const result = await db.resultStore.getResultById(request.params.id);
@@ -41,7 +45,9 @@ export const resultApi = {
   },
 
   create: {
-    auth: false,
+  auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const result = await db.resultStore.addResult(request.params.id, request.payload);
@@ -61,7 +67,9 @@ export const resultApi = {
   },
 
   deleteAll: {
-    auth: false,
+  auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.resultStore.deleteAllResults();
@@ -75,7 +83,9 @@ export const resultApi = {
   },
 
   deleteOne: {
-    auth: false,
+  auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const result = await db.resultStore.getResultById(request.params.id);
