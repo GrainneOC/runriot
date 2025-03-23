@@ -4,7 +4,9 @@ import { db } from "../models/db.js";
 
 export const trailApi = {
   find: {
-    auth: false,
+      auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const trails = await db.trailStore.getAllTrails();
@@ -16,7 +18,9 @@ export const trailApi = {
   },
 
   findOne: {
-    auth: false,
+      auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const trail = await db.trailStore.getTrailById(request.params.id);
@@ -31,7 +35,9 @@ export const trailApi = {
   },
 
   create: {
-    auth: false,
+      auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const trail = request.payload;
@@ -47,7 +53,9 @@ export const trailApi = {
   },
 
   deleteOne: {
-    auth: false,
+      auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const trail = await db.trailStore.getTrailById(request.params.id);
@@ -63,7 +71,9 @@ export const trailApi = {
   },
 
   deleteAll: {
-    auth: false,
+      auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.trailStore.deleteAllTrails();
