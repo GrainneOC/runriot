@@ -1,4 +1,3 @@
-import Mongoose from "mongoose";
 import { Trail } from "./trail.js";
 import { resultMongoStore } from "./result-mongo-store.js";
 
@@ -9,7 +8,7 @@ export const trailMongoStore = {
   },
 
   async getTrailById(id) {
-    if (Mongoose.isValidObjectId(id)) {
+    if (id) {
       const trail = await Trail.findOne({ _id: id }).lean();
       if (trail) {
         trail.results = await resultMongoStore.getResultsByTrailId(trail._id);

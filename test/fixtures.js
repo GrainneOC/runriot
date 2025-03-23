@@ -34,7 +34,8 @@ export const testUsers = [
 ];
 
 export const greenway = {
-  title: "Greenway"
+  title: "Greenway",
+  location: "Cork"
 };
 
 export const testresult = {
