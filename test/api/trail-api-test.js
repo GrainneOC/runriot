@@ -2,7 +2,7 @@ import { EventEmitter } from "events";
 import { assert } from "chai";
 import { runriotService } from "./runriot-service.js";
 import { assertSubset } from "../test-utils.js";
-import { aoife, greenway, testTrails } from "../fixtures.js";
+import { aoife, aoifeCredentials, greenway, testTrails } from "../fixtures.js";
 
 EventEmitter.setMaxListeners(25);
 
@@ -10,9 +10,13 @@ suite("Trail API tests", () => {
   let user = null;
 
   setup(async () => {
+    runriotService.clearAuth();
+    user = await runriotService.createUser(aoife);
+    await runriotService.authenticate(aoifeCredentials);
     await runriotService.deleteAllTrails();
     await runriotService.deleteAllUsers();
     user = await runriotService.createUser(aoife);
+    await runriotService.authenticate(aoifeCredentials);
     greenway.userid = user._id;
   });
 
