@@ -26,4 +26,6 @@ export const webRoutes = [
   { method: "POST", path: "/result/{id}/updateresult/{resultid}", config: resultController.update },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
+
+  { method: "POST", path: "/trail/{id}/uploadimage", config: trailController.uploadImage },
 ];
