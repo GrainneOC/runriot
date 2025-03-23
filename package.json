@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GrainneOC/run-riot"
+    "url": "git+https://github.com/GrainneOC/runriot"
   },
   "keywords": [
     "node",
@@ -21,9 +21,9 @@
   "author": "Gráinne O' Connor",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GrainneOC/run-riot/issues"
+    "url": "https://github.com/GrainneOC/runriot/issues"
   },
-  "homepage": "https://github.com/GrainneOC/run-riot#readme",
+  "homepage": "https://github.com/GrainneOC/runriot#readme",
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "@hapi/cookie": "^12.0.1",
