@@ -30,6 +30,14 @@ const swaggerOptions = {
     title: "RunRiot API",
     version: "0.5.0",
   },
+  securityDefinitions: {
+    jwt: {
+      type: "apiKey",
+      name: "Authorization",
+      in: "header"
+    }
+  },
+    security: [{ jwt: [] }]
 };
 
 async function init() {
