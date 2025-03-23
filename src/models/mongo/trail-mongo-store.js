@@ -41,4 +41,13 @@ export const trailMongoStore = {
   async deleteAllTrails() {
     await Trail.deleteMany({});
   },
+
+  async updateTrail(updatedTrail) {
+    const trail = await Trail.findOne({ _id: updatedTrail._id });
+    trail.title = updatedTrail.title;
+    trail.location = updatedTrail.location;
+    trail.img = updatedTrail.img;
+    await trail.save();
+  }, 
+
 };
