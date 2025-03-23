@@ -1,17 +1,17 @@
 {{> menu}}
 
-<form class="box"  action="/track/{{playlist._id}}/updatetrack/{{track._id}}" method="POST">
+<form class="box"  action="/result/{{trail._id}}/updateresult/{{result._id}}" method="POST">
   <label>Update Result Details:</label>
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <input class="input" type="text" name="title", value="{{track.title}}">
+        <input class="input" type="text" name="distance", value="{{result.distance}}">
       </div>
       <div class="field">
-        <input class="input" type="text" name="artist" value="{{track.artist}}">
+        <input class="input" type="text" name="duration" value="{{result.duration}}">
       </div>
       <div class="field">
-        <input class="input" type="text"  name="duration" value="{{track.duration}}">
+        <input class="input" type="text"  name="date" value="{{result.date}}">
       </div>
     </div>
   </div>

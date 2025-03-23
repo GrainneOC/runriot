@@ -27,32 +27,3 @@
     {{/each}}
   </tbody>
 </table>
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>Distance (km)</th>
-      <th>Duration (mins)</th>
-      <th>Date </th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each trail.results}}
-      <tr>
-        <td>
-          {{distance}}
-        </td>
-        <td>
-          {{duration}}
-        </td>
-        <td>
-          {{date}}
-        </td>
-        <td>
-          <a href="/trail/{{../trail._id}}/deleteresult/{{_id}}" class="ui icon button">
-            <i class="fas fa-trash"></i>
-          </a>
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
