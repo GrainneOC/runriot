@@ -1,6 +1,7 @@
 import Boom from "@hapi/boom";
 import { TrailSpec } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+import { validationError } from "./logger.js";
 
 export const trailApi = {
   find: {
@@ -15,6 +16,10 @@ export const trailApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    response: { schema: TrailArraySpec, failAction: validationError },
+    description: "Get all trails",
+    notes: "Returns all trails",
   },
 
   findOne: {
@@ -32,6 +37,11 @@ export const trailApi = {
         return Boom.serverUnavailable("No Trail with this id");
       }
     },
+    tags: ["api"],
+    description: "Find a Trail",
+    notes: "Returns a trail",
+    validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: TrailSpecPlus, failAction: validationError },
   },
 
   create: {
@@ -50,6 +60,11 @@ export const trailApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Create a Trail",
+    notes: "Returns the newly created trail",
+    validate: { payload: TrailSpec, failAction: validationError },
+    response: { schema: TrailSpecPlus, failAction: validationError },
   },
 
   deleteOne: {
@@ -68,6 +83,9 @@ export const trailApi = {
         return Boom.serverUnavailable("No Trail with this id");
       }
     },
+    tags: ["api"],
+    description: "Delete a trail",
+    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
   deleteAll: {
@@ -82,5 +100,7 @@ export const trailApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Delete all TrailApi",
   },
 };
