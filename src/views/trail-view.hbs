@@ -1,10 +1,14 @@
 {{> menu}}
-
-<section class="section">
-  <div class="title">
-    {{trail.title}}
-    {{trail.location}}
+<section class="section columns is-vcentered">
+  <div class="column has-text-centered">
+    <div class="title">
+      {{trail.title}}
+      {{trail.location}}
+    </div>
+    {{> list-results}}
+    {{> add-result}}
   </div>
-  {{> list-results}}
-  {{> add-result}}
+  <div class="column">
+    {{> trail-image}}
+  </div>
 </section>
