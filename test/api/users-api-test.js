@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { runriotService } from "./runriot-service.js";
-import { aoife, testUsers } from "../fixtures.js";
+import { aoife, aoifeCredentials, testUsers } from "../fixtures.js";
 import { db } from "../../src/models/db.js";
 
 const users = new Array(testUsers.length);
@@ -10,14 +10,14 @@ suite("User API tests", () => {
   setup(async () => {
     runriotService.clearAuth();
     await runriotService.createUser(aoife);
-    await runriotService.authenticate(aoife);
+    await runriotService.authenticate(aoifeCredentials);
     await runriotService.deleteAllUsers();
     for (let i = 0; i < testUsers.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
       users[0] = await runriotService.createUser(testUsers[i]);
     }
     await runriotService.createUser(aoife);
-    await runriotService.authenticate(aoife);
+    await runriotService.authenticate(aoifeCredentials);
   });
   teardown(async () => {});
 
@@ -32,7 +32,7 @@ suite("User API tests", () => {
     assert.equal(returnedUsers.length, 4);
     await runriotService.deleteAllUsers();
     await runriotService.createUser(aoife);
-    await runriotService.authenticate(aoife);
+    await runriotService.authenticate(aoifeCredentials);
     returnedUsers = await runriotService.getAllUsers();
     assert.equal(returnedUsers.length, 1);
   });
@@ -55,7 +55,7 @@ suite("User API tests", () => {
   test("get a user - deleted user", async () => {
     await runriotService.deleteAllUsers();
     await runriotService.createUser(aoife);
-    await runriotService.authenticate(aoife);
+    await runriotService.authenticate(aoifeCredentials);
     try {
       const returnedUser = await runriotService.getUser(users[0]._id);
       assert.fail("Should not return a response");

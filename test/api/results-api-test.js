@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { runriotService } from "./runriot-service.js";
-import { aoife, greenway, testTrails, testResults, testresult } from "../fixtures.js";
+import { aoife, aoifeCredentials, greenway, testTrails, testResults, testresult } from "../fixtures.js";
 
 suite("Result API tests", () => {
   let user = null;
@@ -10,12 +10,12 @@ suite("Result API tests", () => {
   setup(async () => {
     runriotService.clearAuth();
     user = await runriotService.createUser(aoife);
-    await runriotService.authenticate(aoife);
+    await runriotService.authenticate(aoifeCredentials);
     await runriotService.deleteAllTrails();
     await runriotService.deleteAllResults();
     await runriotService.deleteAllUsers();
     user = await runriotService.createUser(aoife);
-    await runriotService.authenticate(aoife);
+    await runriotService.authenticate(aoifeCredentials);
     greenway.userid = user._id;
     parkRun = await runriotService.createTrail(greenway);
   });
