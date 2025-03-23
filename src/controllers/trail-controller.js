@@ -26,7 +26,7 @@ export const trailController = {
       const trail = await db.trailStore.getTrailById(request.params.id);
       const newResult = {
         distance: Number(request.payload.distance),
-        duration: Number(request.payload.artist),
+        duration: Number(request.payload.duration),
         date: request.payload.date,
       };
       await db.resultStore.addResult(trail._id, newResult);
