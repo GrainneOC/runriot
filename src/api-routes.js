@@ -8,6 +8,8 @@ export const apiRoutes = [
   { method: "DELETE", path: "/api/users", config: userApi.deleteAll },
   { method: "GET", path: "/api/users/{id}", config: userApi.findOne },
 
+  { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
+  
   { method: "POST", path: "/api/trails", config: trailApi.create },
   { method: "DELETE", path: "/api/trails", config: trailApi.deleteAll },
   { method: "GET", path: "/api/trails", config: trailApi.find },
@@ -20,6 +22,6 @@ export const apiRoutes = [
   { method: "DELETE", path: "/api/results", config: resultApi.deleteAll },
   { method: "DELETE", path: "/api/results/{id}", config: resultApi.deleteOne },
 
-  { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
+
 
 ];

@@ -30,7 +30,7 @@ export const dashboardController = {
         title: request.payload.title,
         location: request.payload.location
       };
-      await db.trailStore.addTrail(newPlayList);
+      await db.trailStore.addTrail(newTrail);
       return h.redirect("/dashboard");
     },
   },

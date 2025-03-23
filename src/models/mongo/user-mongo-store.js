@@ -1,4 +1,3 @@
-import Mongoose from "mongoose";
 import { User } from "./user.js";
 
 export const userMongoStore = {
@@ -8,7 +7,7 @@ export const userMongoStore = {
   },
 
   async getUserById(id) {
-    if (Mongoose.isValidObjectId(id)) {
+    if (id) {
       const user = await User.findOne({ _id: id }).lean();
       return user;
     }
@@ -37,5 +36,5 @@ export const userMongoStore = {
 
   async deleteAll() {
     await User.deleteMany({});
-  },
+  }
 };
