@@ -24,6 +24,7 @@ export const seedData = {
       _model: "Trail",
       greenway: {
         title: "Blackrock Greenway",
+        location: "Cork",
         userid: "->users.thomas"
       }
     },
