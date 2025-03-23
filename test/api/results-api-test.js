@@ -12,8 +12,8 @@ suite("Result API tests", () => {
     user = await runriotService.createUser(aoife);
     await runriotService.authenticate(aoife);
     await runriotService.deleteAllTrails();
-    await runriotService.deleteAllUsers();
     await runriotService.deleteAllResults();
+    await runriotService.deleteAllUsers();
     user = await runriotService.createUser(aoife);
     await runriotService.authenticate(aoife);
     greenway.userid = user._id;

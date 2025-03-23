@@ -8,11 +8,16 @@ const users = new Array(testUsers.length);
 
 suite("User API tests", () => {
   setup(async () => {
+    runriotService.clearAuth();
+    await runriotService.createUser(aoife);
+    await runriotService.authenticate(aoife);
     await runriotService.deleteAllUsers();
     for (let i = 0; i < testUsers.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
       users[0] = await runriotService.createUser(testUsers[i]);
     }
+    await runriotService.createUser(aoife);
+    await runriotService.authenticate(aoife);
   });
   teardown(async () => {});
 
@@ -22,12 +27,14 @@ suite("User API tests", () => {
     assert.isDefined(newUser._id);
   });
 
-  test("delete all userApi", async () => {
+  test("delete all user", async () => {
     let returnedUsers = await runriotService.getAllUsers();
-    assert.equal(returnedUsers.length, 3);
+    assert.equal(returnedUsers.length, 4);
     await runriotService.deleteAllUsers();
+    await runriotService.createUser(aoife);
+    await runriotService.authenticate(aoife);
     returnedUsers = await runriotService.getAllUsers();
-    assert.equal(returnedUsers.length, 0);
+    assert.equal(returnedUsers.length, 1);
   });
 
   test("get a user", async () => {
@@ -41,12 +48,14 @@ suite("User API tests", () => {
       assert.fail("Should not return a response");
     } catch (error) {
       assert(error.response.data.message === "No User with this id");
-      // assert.equal(error.response.data.statusCode, 503);
+      assert.equal(error.response.data.statusCode, 404);
     }
   });
 
   test("get a user - deleted user", async () => {
     await runriotService.deleteAllUsers();
+    await runriotService.createUser(aoife);
+    await runriotService.authenticate(aoife);
     try {
       const returnedUser = await runriotService.getUser(users[0]._id);
       assert.fail("Should not return a response");
@@ -56,3 +65,4 @@ suite("User API tests", () => {
     }
   });
 });
+
