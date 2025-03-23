@@ -5,6 +5,7 @@ const { Schema } = Mongoose;
 const trailSchema = new Schema({
   title: String,
   location: String,
+  img: String,
   userid: {
     type: Schema.Types.ObjectId,
     ref: "User",

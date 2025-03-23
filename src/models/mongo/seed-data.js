@@ -25,12 +25,13 @@ export const seedData = {
       greenway: {
         title: "Blackrock Greenway",
         location: "Cork",
-        userid: "->users.thomas"
+        userid: "->users.thomas",
+        img: "http://res.cloudinary.com/dnm42biwz/image/upload/v1742738467/zzvcakanndr834csta4u.jpg"
       }
     },
     results: {
       _model : "Result",
-      result_1 : {
+      testresult : {
         distance: 8,
         duration: 45,
         date: "20/02/2025",
