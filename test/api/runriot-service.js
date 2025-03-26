@@ -1,5 +1,5 @@
 import axios from "axios";
-import { serviceUrl } from "../fixtures.js";
+import { aoife, serviceUrl } from "../fixtures.js";
 
 export const runriotService = {
   runriotUrl: serviceUrl,
@@ -15,8 +15,12 @@ export const runriotService = {
   },
 
   async getAllUsers() {
-    const res = await axios.get(`${this.runriotUrl}/api/users`);
-    return res.data;
+    try{ 
+     const res = await axios.get(`${this.runriotUrl}/api/users`);
+      return res.data;
+    } catch (e) {
+      return null;
+    }
   },
 
   async deleteAllUsers() {

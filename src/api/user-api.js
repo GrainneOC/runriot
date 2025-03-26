@@ -14,7 +14,7 @@ export const userApi = {
         const users = await db.userStore.getAllUsers();
         return users;
       } catch (err) {
-        return Boom.serverUnavailable("Database Error", err);
+        return Boom.serverUnavailable("Database Error");
       }
     },
     tags: ["api"],
@@ -35,7 +35,7 @@ export const userApi = {
         }
         return user;
       } catch (err) {
-        return Boom.serverUnavailable("No User with this id", err);
+        return Boom.serverUnavailable("No User with this id");
       }
     },
     tags: ["api"],
@@ -55,7 +55,7 @@ export const userApi = {
         }
         return Boom.badImplementation("error creating user");
       } catch (err) {
-        return Boom.serverUnavailable("Database Error", err);
+        return Boom.serverUnavailable("Database Error");
       }
     },
     tags: ["api"],
@@ -74,7 +74,7 @@ export const userApi = {
         await db.userStore.deleteAll();
         return h.response().code(204);
       } catch (err) {
-        return Boom.serverUnavailable("Database Error", err);
+        return Boom.serverUnavailable("Database Error");
       }
     },
     tags: ["api"],
@@ -95,7 +95,7 @@ export const userApi = {
         const token = createToken(user);
         return h.response({ success: true, token: token }).code(201);
       } catch (err) {
-        return Boom.serverUnavailable("Database Error", err);
+        return Boom.serverUnavailable("Database Error");
       }
     },
     tags: ["api"],

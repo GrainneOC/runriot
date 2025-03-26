@@ -1,5 +1,5 @@
-import Mongoose from "mongoose";
 import { Result } from "./result.js";
+import { Trail } from "./trail.js";
 
 export const resultMongoStore = {
   async getAllResults() {
@@ -20,7 +20,7 @@ export const resultMongoStore = {
   },
 
   async getResultById(id) {
-    if (Mongoose.isValidObjectId(id)) {
+    if ((id)) {
       const result = await Result.findOne({ _id: id }).lean();
       return result;
     }

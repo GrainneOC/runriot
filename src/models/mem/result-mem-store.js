@@ -1,51 +1,51 @@
 import { v4 } from "uuid";
 
-let trails = [];
+let results = [];
 
 export const resultMemStore = {
-  async getAllTrails() {
-    return trails;
+  async getAllResults() {
+    return results;
   },
 
-  async addTrail(trailId, trail) {
-    trail._id = v4();
-    trail.trailid = trailId;
-    trails.push(trail);
-    return trail;
+  async addResult(trailId, result) {
+    result._id = v4();
+    result.trailid = trailId;
+    results.push(result);
+    return result;
   },
 
-  async getTrailsByTrailId(id) {
-    return trails.filter((trail) => trail.trailid === id);
+  async getResultsByTrailId(id) {
+    return results.filter((result) => result.trailid === id);
   },
 
-  async getTrailById(id) {
-    let foundTrail = trails.find((trail) => trail._id === id);
-    if (!foundTrail) {
-      foundTrail = null;
+  async getResultById(id) {
+    let foundResult = results.find((result) => result._id === id);
+    if (!foundResult) {
+      foundResult = null;
     }
-    return foundTrail;
+    return foundResult;
   },
 
-  async getTrailTrails(trailId) {
-    let foundTrails = trails.filter((trail) => trail.trailid === trailId);
-    if (!foundTrails) {
-      foundTrails = null;
+  async getTrailResults(trailId) {
+    let foundResults = results.filter((result) => result.trailid === trailId);
+    if (!foundResults) {
+      foundResults = null;
     }
-    return foundTrails;
+    return foundResults;
   },
 
-  async deleteTrail(id) {
-    const index = trails.findIndex((trail) => trail._id === id);
-    if (index !== -1) trails.splice(index, 1);
+  async deleteResult(id) {
+    const index = results.findIndex((result) => result._id === id);
+    if (index !== -1) results.splice(index, 1);
   },
 
-  async deleteAllTrails() {
-    trails = [];
+  async deleteAllResults() {
+    results = [];
   },
 
-  async updateTrail(trail, updatedTrail) {
-    trail.distance = updatedTrail.distance;
-    trail.duration = updatedTrail.duration;
-    trail.date = updatedTrail.date;
+  async updateResult(result, updatedResult) {
+    result.distance = updatedResult.distance;
+    result.duration = updatedResult.duration;
+    result.date = updatedResult.date;
   },
 };
